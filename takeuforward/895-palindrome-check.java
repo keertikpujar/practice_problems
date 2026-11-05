@@ -1,0 +1,19 @@
+// Problem: 895. Palindrome Check
+// Link: https://takeuforward.org/practice/dsa/palindrome-check
+
+class Solution {   
+    public boolean palindromeCheck(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        
+        return true;
+    }
+}
