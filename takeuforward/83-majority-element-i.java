@@ -1,21 +1,32 @@
 // Problem: 83. Majority Element-I
 // Link: https://takeuforward.org/practice/dsa/majority-element-i?tab=code&sidebar=0
 
-//brute force
 class Solution {
     public int majorityElement(int[] a) {
-        
-        for (int i=0;i<a.length;i++){
-            int count=0;
-            for(int j=0;j<a.length;j++){
-                if(a[i]==a[j]){
-                    count=count+1;
-                }
+        int count=0;
+        int ele=0;
+        for(int i=0;i<a.length;i++){
+            if(count==0){
+                count=1;
+                 ele=a[i];
             }
-            if(count>a.length/2){
-                return a[i];
+            else if(ele==a[i]){
+                count++;
             }
+            else{
+                count--;
+            }
+        }
+        int count1=0;
+        for(int i=0;i<a.length;i++){
+            if(a[i]==ele){
+                count1++;
+            }
+        }
+        if (count1>a.length/2){
+            return ele;
         }
         return -1;
     }
+
 }
